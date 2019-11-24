@@ -11,7 +11,7 @@ mongoose.connect(process.env.MLAB_URI || "mongodb://localhost/exercise-track");
 
 app.use(cors());
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false, useMongoClient: true }));
 app.use(bodyParser.json());
 
 app.use(express.static("public"));

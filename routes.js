@@ -10,7 +10,7 @@ router.post("/new-user", (req, resp) => {
   const {username } = req.body;
   const user = User.findOne({username});
   if(user){
-    return resp.status(401).json({error: "User already exists"})
+    return resp.status(401).json({error: "User already exists", user})
   }
   return User.create({username}).then(user => {
     return resp.status(200).json(user)
